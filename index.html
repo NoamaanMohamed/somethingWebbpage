@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <header>
+           <a href=# id="para1" >Para1</a>
+           <a href=# id="para2" >Para2</a>
+           <a href=# id="para3">para3</a>
+        </header>
+    </head>
+
+    <body>
+        <h1 class="example" onclick="chgColor()" onmouseout="chgColorBack()">Heading 1</h1>
+
+        <p id="para1">xddddddddddddddddddddddddddddd <br />xddddddddddddddddddddddddddddd </p>
+        <p id="para2">xddddddddddddddddddddddddddddddd</p>
+        <p id="para3">xddddddddddddddddddddddddddddddd</p>
+
+        <p id="demo">ok</p>
+
+        <script>
+            function chgColor(){
+            document.querySelector(".example").style.backgroundColor = "red";
+            }    
+
+            function chgColorBack(){
+            document.querySelector(".example").style.backgroundColor = "white";
+            }   
+
+            document.addEventListener("keydown", addtext);
+
+            function addtext(keyPressed){
+            var newP= document.createElement("p");
+            newP.innerHTML = keyPressed.key;
+            document.body.appendChild(newP)
+            }
+
+
+            
+           
+        </script>
+    </body>
+</html>
