@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <header>
-           <a href=# id="para1" >Para1</a>
-           <a href=# id="para2" >Para2</a>
-           <a href=# id="para3">para3</a>
-        </header>
+        
     </head>
 
+
+
     <body>
+
+
+
+
+        <header>
+            <nav>
+                <a href=# onclick="checkParagraph('para1')">Para1</a>
+                <a href=# onclick="checkParagraph('para2')" >Para2</a>
+                <a href=# onclick="checkParagraph('para3')">para3</a>
+            </nav>
+        </header>
         <h1 class="example" onclick="chgColor()" onmouseout="chgColorBack()">Heading 1</h1>
+        <h2 id="h2" onmouseover="addGreeting()">kekw</h2>
 
         <p id="para1">xddddddddddddddddddddddddddddd <br />xddddddddddddddddddddddddddddd </p>
         <p id="para2">xddddddddddddddddddddddddddddddd</p>
@@ -33,6 +43,48 @@
             newP.innerHTML = keyPressed.key;
             document.body.appendChild(newP)
             }
+
+
+            function addGreeting(){
+                let greeting = "yo"
+                document.getElementById("h2").innerHTML= greeting;
+            }
+
+            
+            let paragraph1 = false;
+            let paragraph2 = false;
+            let paragraph3 = false;
+
+            const biggerAndBolder = (paragraphId, pBool) => {
+                if (pBool) {
+                    document.querySelector(`#${paragraphId}`).style.fontSize = "";
+                    document.querySelector(`#${paragraphId}`).style.fontWeight = "";
+                } else {
+                    document.querySelector(`#${paragraphId}`).style.fontSize = "large";
+                    document.querySelector(`#${paragraphId}`).style.fontWeight = "900";
+                }
+            }
+
+            const checkParagraph = (paragraphId) => {
+                switch (paragraphId) {
+                    case "para1":
+                        biggerAndBolder(paragraphId, paragraph1)
+                        paragraph1 = !paragraph1
+                        break;
+                    case "para2":
+                        biggerAndBolder(paragraphId, paragraph2)
+                        paragraph2 = !paragraph2
+                        break;
+                    case "para3":
+                        biggerAndBolder(paragraphId, paragraph3)
+                        paragraph3 = !paragraph3
+                        break;
+                    default:
+                        break;
+                }
+            }
+            
+            
 
 
             
