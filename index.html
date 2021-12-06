@@ -19,7 +19,7 @@
             </nav>
         </header>
         <h1 class="example" onclick="chgColor()" onmouseout="chgColorBack()">Heading 1</h1>
-        <h2 id="h2" onmouseover="addGreeting()">kekw</h2>
+        <h2 id="h2" onmouseover="addGreeting()" onmouseout="goBack()">kekw</h2>
 
         <p id="para1">xddddddddddddddddddddddddddddd <br />xddddddddddddddddddddddddddddd </p>
         <p id="para2">xddddddddddddddddddddddddddddddd</p>
@@ -28,6 +28,9 @@
         <p id="demo">ok</p>
 
         <script>
+            //save current greeting
+            let oldGreeting =  document.getElementById("h2").innerHTML;
+
             function chgColor(){
             document.querySelector(".example").style.backgroundColor = "red";
             }    
@@ -37,7 +40,7 @@
             }   
 
             document.addEventListener("keydown", addtext);
-
+ 
             function addtext(keyPressed){
             var newP= document.createElement("p");
             newP.innerHTML = keyPressed.key;
@@ -46,8 +49,13 @@
 
 
             function addGreeting(){
-                let greeting = "yo"
-                document.getElementById("h2").innerHTML= greeting;
+                let newGreeting = "yo"
+                document.getElementById("h2").innerHTML= newGreeting;
+            }
+
+            function goBack(){
+               
+                document.getElementById("h2").innerHTML = oldGreeting;
             }
 
             
